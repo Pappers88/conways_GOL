@@ -3,7 +3,7 @@ import sys
 
 import pygame
 
-from colours import dark_blue, green, black
+from colours import dark_blue, green, black, pink
 
 
 def draw_grid():
@@ -15,7 +15,7 @@ def draw_grid():
 
 def draw_cells():
     for (x, y) in cells:
-        colour = green if cells[x, y] else black
+        colour = pink if cells[x, y] else black
         rectangle = (x * cell_size, y * cell_size, cell_size, cell_size)
         pygame.draw.rect(screen, colour, rectangle)
 
@@ -41,7 +41,7 @@ def evolve():
     cells = newCells
 
 
-def get_cells(density=0.2):
+def get_cells(density=0.3):
     return {(c, r): random.random() < density for c in range(columns) for r in range(rows)}
 
 
